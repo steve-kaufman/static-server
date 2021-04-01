@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	http.ListenAndServe(":8080", http.FileServer(http.Dir(os.Args[1])))
+	staticDirectory := os.Getenv("STATIC_DIR")
+	http.ListenAndServe(":8080", http.FileServer(http.Dir(staticDirectory)))
 }
